@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="GET">
+	<select name="difficulty">
+		<option value="">All Difficulties</option>
+		<option value="Easy">Easy</option>
+		<option value="Moderate">Moderate</option>
+		<option value="Hard">Hard</option>
+	</select>
+	<input type="text" name="location" placeholder="Location">
+	<button type="submit" class="btn btn-primary">Search</button>
+</form>
+<table class="table mt-3">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Location</th>
+			<th>Difficulty</th>
+			<th>Slots</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for trek in treks %}
+		<tr>
+			<td>{{ trek.name }}</td>
+			<td>{{ trek.location }}</td>
+			<td>{{ trek.difficulty }}</td>
+			<td>{{ trek.available_slots }}</td>
+			<td><a href="/book/{{ trek.id }}" class="btn btn-sm btn-success">Book</a></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="GET">
+	<input type="text" name="q" placeholder="Search users or treks" value="{{ query }}">
+	<button type="submit" class="btn btn-primary">Search</button>
+</form>
+<h4 class="mt-3">Users</h4>
+<table class="table">
+	<thead><tr><th>Username</th><th>Email</th><th>Role</th></tr></thead>
+	<tbody>
+		{% for user in users %}
+		<tr>
+			<td>{{ user.username }}</td>
+			<td>{{ user.email }}</td>
+			<td>{{ user.role }}</td>
+		</tr>
+        	{% endfor %}
+	</tbody>
+</table>
+<h4>Treks</h4>
+<table class="table">
+	<thead><tr><th>Name</th><th>Location</th><th>Status</th></tr></thead>
+	<tbody>
+		{% for trek in treks %}
+		<tr>
+			<td>{{ trek.name }}</td>
+			<td>{{ trek.location }}</td>
+			<td>{{ trek.status }}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}

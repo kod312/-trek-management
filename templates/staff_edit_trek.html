@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="POST">
+    <input type="number" name="available_slots" value="{{ trek.available_slots }}">
+    <select name="status">
+        <option value="Open" {% if trek.status == 'Open' %}selected{% endif %}>Open</option>
+        <option value="Closed" {% if trek.status == 'Closed' %}selected{% endif %}>Closed</option>
+        <option value="Completed" {% if trek.status == 'Completed' %}selected{% endif %}>Completed</option>
+    </select>
+    <button type="submit" class="btn btn-primary">Update Trek</button>
+</form>
+{% endblock %}

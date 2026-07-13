@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Location</th>
+			<th>Difficulty</th>
+			<th>Status</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		{%for trek in treks%}
+		<tr>
+			<td>{{trek.name}}</td>
+			<td>{{trek.location}}</td>
+			<td>{{trek.difficulty}}</td>
+			<td>{{trek.status}}</td>
+			<td><a href="/admin/trek/edit/{{ trek.id }}" class="btn btn-sm btn-warning">Edit</a></td>
+			<td><a href="/admin/trek/assign/{{ trek.id }}" class="btn btn-sm btn-info">Assign Staff</a></td>
+			<td><a href="/admin/trek/delete/{{ trek.id }}" class="btn btn-sm btn-danger">Delete</a></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+
+{% endblock %}

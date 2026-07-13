@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="POST">
+	<input type= "text" name= "name" placeholder= "Name">
+	<input type= "text" name= "location" placeholder= "Location">
+	<select name="difficulty">
+		<option value="easy">easy</option>
+		<option value="medium">medium</option>
+		<option value="hard">hard</option>
+	</select>
+	<select name="status">
+	
+		<option value="pending">pending</option>
+		<option value="approved">approved</option>
+		<option value="open">open</option>
+		<option value="closed">closed</option>
+		<option value="finished">finished</option>
+	</select>
+	<input type= "number" name= "duration" placeholder= "Duration">
+	<input type= "number" name= "available_slots" placeholder= "Available_slots">
+	<input type= "date" name= "start_date" placeholder= "starting_date">
+	<input type= "date" name= "end_date" placeholder= "ending_date">
+	<button type= "submit">create your trek</button>
+</form>
+{% endblock %}

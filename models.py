@@ -15,6 +15,7 @@ class User(db.Model, UserMixin):
     name = db.Column(db.String(100))
     contact = db.Column(db.String(20))
     is_blacklisted = db.Column(db.Boolean, default=False)
+    status = db.Column(db.String(20), default='pending')
 class Trek(db.Model):
 	__tablename__ = "trek"
 	id = db.Column(db.Integer, primary_key=True)
